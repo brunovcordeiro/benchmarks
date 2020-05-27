@@ -23,14 +23,15 @@
 #
 
 # Builds everything.
-all: all-heartbeat all-barrier all-lookup all-pgfetch all-msync
+all: all-heartbeat all-barrier all-lookup all-pgfetch all-msync all-bsync
 
 # Cleans up build objects.
-clean: clean-heartbeat clean-barrier clean-lookup clean-pgfetch clean-msync
+clean: clean-heartbeat clean-barrier clean-lookup clean-pgfetch clean-msync \
+	clean-bsync
 
 # Cleans up everything.
 distclean: distclean-heartbeat distclean-barrier distclean-lookup \
-	distclean-pgfetch distclean-msync
+	distclean-pgfetch distclean-msync distclean-bsync
 
 #===============================================================================
 # Heart Beat
@@ -63,6 +64,22 @@ clean-barrier:
 # Cleans up everything.
 distclean-barrier:
 	$(MAKE) -C barrier distclean
+
+#===============================================================================
+# Block Sync
+#===============================================================================
+
+# Builds benchmark.
+all-bsync:
+	$(MAKE) -C bsync all
+
+# Cleans up build object.
+clean-bsync:
+	$(MAKE) -C bsync clean
+
+# Cleans up everything.
+distclean-bsync:
+	$(MAKE) -C bsync distclean
 
 #===============================================================================
 # Lookup

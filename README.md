@@ -22,6 +22,7 @@ following benchmarks are featured.
 **OS Service Benchmarks**
 
 - barrier
+- bsync
 - deploy
 - heartbeat
 - lookup
